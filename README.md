@@ -16,6 +16,22 @@ PrivacyHub CMP enables Google Consent Mode v2 compliance with automatic consent 
 
 ---
 
+## Google Consent Mode Signals
+
+This template manages the following consent signals:
+
+- ad_storage
+- ad_user_data
+- ad_personalization
+- analytics_storage
+- functionality_storage
+- personalization_storage
+- security_storage
+
+Default state is set to **denied**, and updated based on user consent.
+
+---
+
 ## Setup
 
 ### Step 1 — Add Template
@@ -49,10 +65,17 @@ Create GA4 tag with trigger: privacyhub_google_tag_init_after_consent
 
 ## Behavior
 
-- Before consent → all tracking blocked  
-- Accept all → tracking enabled  
-- Reject all → tracking blocked  
-- Preferences → conditional loading  
+- Before consent:
+  - Google tags (GA4, Ads, Floodlight) do NOT fire
+  - No `collect` or `g/collect` requests are sent
+- Accept all:
+  - All consent signals set to granted
+  - Tags are released
+- Reject all:
+  - Consent remains denied
+  - Tags remain blocked
+- Preferences:
+  - Tags load based on selected categories
 
 ---
 
@@ -64,6 +87,19 @@ This template enforces Google Consent Mode v2 by:
 - Updating consent state after user action via CMP
 - Preventing Google tags from firing before consent
 - Enabling tags only after valid consent is received
+
+---
+
+## External Script
+
+This template loads the PrivacyHub CMP script from:
+
+https://api.privacyhub.ai/functions/v1/ph
+
+This script is responsible for:
+- Displaying consent banner
+- Managing consent state
+- Controlling script execution
 
 ---
 
