@@ -56,6 +56,17 @@ Create GA4 tag with trigger: privacyhub_google_tag_init_after_consent
 
 ---
 
+## Compliance Behavior
+
+This template enforces Google Consent Mode v2 by:
+
+- Setting default consent state to denied before user interaction
+- Updating consent state after user action via CMP
+- Preventing Google tags from firing before consent
+- Enabling tags only after valid consent is received
+
+---
+
 ## Support
 
 https://www.privacyhub.ai  
