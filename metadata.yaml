@@ -1,5 +1,5 @@
 homepage: "https://www.privacyhub.ai"
 documentation: "https://www.privacyhub.ai/help-center/enable-google-consent-mode"
 versions:
-  - sha: "REPLACE_WITH_COMMIT_SHA"
+  - sha: "5f4545dbc3d4b7280cacb3410e6c32429b0b01c3"
     changeNotes: "Initial release of PrivacyHub CMP template with Google Consent Mode v2 support"
